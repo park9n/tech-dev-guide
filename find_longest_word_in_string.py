@@ -24,17 +24,17 @@ def find_longest_word_in_string(letters, words):
         for letter in word:
             if letter not in letter_positions:
                 break
-        # Find any remaining valid positions in search string where this
-        # letter appears.  It would be better to do this with binary search,
-        # but this is very Python-ic.
-        possible_positions = [p for p in letter_positions[letter] if p >= pos]
-        if not possible_positions:
-            break
-        pos = possible_positions[0] + 1
+            # Find any remaining valid positions in search string where this
+            # letter appears.  It would be better to do this with binary search,
+            # but this is very Python-ic.
+            possible_positions = [p for p in letter_positions[letter] if p >= pos]
+            if not possible_positions:
+                break
+            pos = possible_positions[0] + 1
         else:
             # We didn't break out of the loop, so all letters have valid positions
             return word
 
 if __name__ == '__main__':
-    print(find_longest_word_in_string("abppplee", {"able", "ale", "apple", "bale", "kangaroo"}))
- #   print subdict(sys.argv[1], sys.argv[2:])
+#    print(find_longest_word_in_string("abppplee", {"able", "ale", "apple", "bale", "kangaroo"}))
+    print(find_longest_word_in_string(sys.argv[1], sys.argv[2:]))
